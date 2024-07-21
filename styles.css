@@ -6,23 +6,38 @@ body {
 }
 
 header {
+    display: flex;
+    flex-direction: column;
     background: #333;
     color: #fff;
     padding: 1em 0;
     text-align: center;
 }
 
+header div {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2%;
+}
+
+#label {
+    display: flex;
+    flex-direction: column;
+}
+
 header img {
     border-radius: 50%;
-    width: 150px;
+    width: 10%;
 }
 
 header h1 {
-    margin: 0.5em 0 0.1em;
+    margin: 0%;
 }
 
 header h2 {
-    margin: 0.1em 0 1em;
+    margin: 0%;
     font-weight: normal;
 }
 
@@ -42,7 +57,9 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+    text-decoration:underline;
+    font-style: italic;
+    color: mediumseagreen;
 }
 
 main {
