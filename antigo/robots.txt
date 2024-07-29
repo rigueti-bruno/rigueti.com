@@ -1,7 +1,0 @@
-User-agent: *
-Allow: /
-
-# Sitemaps
-Sitemap: http://rigueti.com/sitemap_pt.xml
-Sitemap: http://rigueti.com/sitemap_en.xml
-Sitemap: http://rigueti.com/sitemap_jp.xml
