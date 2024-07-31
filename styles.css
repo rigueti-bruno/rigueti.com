@@ -1,72 +1,92 @@
 /* styles.css */
 
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 2rem 0;
 }
 
 header img {
-    max-width: 150px;
-    display: block;
-    margin: 0 auto;
+  max-width: 6%;
+  display: block;
+  margin: 0 auto;
 }
 
 nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
 }
 
 nav ul li {
-    display: inline;
-    margin: 0 10px;
+  margin: 0 1rem;
 }
 
 nav ul li a {
-    color: #fff;
-    text-decoration: none;
+  color: #fff;
+  text-decoration: none;
 }
 
 nav ul li a:hover {
-    color: #fff;
-    text-decoration: underline;
+  color: #fff;
 }
 
 nav ul li a img {
-    width: 20%;
-    border-radius: 50%;
+  max-width: 17%;
+  border-radius: 50%;
+}
+
+nav ul li a img:hover {
+  max-width: 20%;
+  border-radius: 50%;
+  border-style: groove;
 }
 
 main {
-    padding: 20px;
+  padding: 2rem;
 }
 
 section {
-    margin-bottom: 20px;
-    text-align: justify;
+  margin-bottom: 2rem;
+  text-align: justify;
 }
 
 footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  position:static;
+  bottom: 0;
+  width: 100%;
 }
 
 footer img {
-    width: 2%;
-    border-radius: 50%;
+  max-width: 2%;
+  border-radius: 50%;
+  border-style:inset;
+}
+
+footer img:hover {
+  max-width: 2%;
+  border-radius: 50%;
+  border-style: solid;
+}
+
+/* Media queries (exemplo) */
+@media (max-width: 768px) {
+  /* Estilos para telas menores que 768px */
+  nav ul {
+    flex-direction: column;
+  }
+  /* Outros ajustes */
 }
