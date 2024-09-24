@@ -59,6 +59,22 @@ section h2 {
     margin-bottom: 1.4%;
 }
 
+.btn-download {
+    display: inline-block;
+    background-color: #000; /* Cor de fundo */
+    color: white;           /* Cor do texto */
+    padding: 15px 30px;     /* Espaçamento interno do botão */
+    text-align: center;     /* Centralizar o texto */
+    text-decoration: none;  /* Remover sublinhado */
+    font-size: 1.2em;       /* Tamanho da fonte */
+    border-radius: 5px;     /* Bordas arredondadas */
+    transition: background-color 0.3s ease; /* Animação suave ao passar o mouse */
+}
+
+.btn-download:hover {
+    background-color: #333; /* Cor de fundo ao passar o mouse */
+}
+
 form {
     display: flex;
     flex-direction: column;
