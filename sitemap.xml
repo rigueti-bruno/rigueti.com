@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- Página inicial -->
+    <url>
+        <loc>https://www.rigueti.com/</loc>
+        <lastmod>2024-09-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Página "Sobre Mim" -->
+    <url>
+        <loc>https://www.rigueti.com/#sobre</loc>
+        <lastmod>2024-09-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Página "Projetos" -->
+    <url>
+        <loc>https://www.rigueti.com/#projetos</loc>
+        <lastmod>2024-09-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Página "Currículo" -->
+    <url>
+        <loc>https://www.rigueti.com/#curriculo</loc>
+        <lastmod>2024-09-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Página "Contato" -->
+    <url>
+        <loc>https://www.rigueti.com/#contato</loc>
+        <lastmod>2024-09-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+</urlset>

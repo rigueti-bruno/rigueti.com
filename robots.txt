@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /private/
+
+# Permitir o rastreamento de todas as outras páginas
+Allow: /
+
+# Especificar o sitemap do seu site
+Sitemap: https://www.rigueti.com/sitemap.xml
