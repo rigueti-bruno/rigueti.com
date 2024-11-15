@@ -54,6 +54,10 @@ section {
     margin-bottom: 2.1%;
 }
 
+#projetos .projeto a {
+    text-decoration: none;
+}
+
 section h2 {
     font-size: 2em;
     margin-bottom: 1.4%;
