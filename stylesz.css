@@ -1,0 +1,185 @@
+body {
+    font-family: Calibri, Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0%;
+    padding: 0%;
+    width: 100%;
+}
+
+header {
+    text-align: center;
+    padding: 3.5%;
+    background-color: #000;
+    color: white;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+nav {
+    background-color: #333;
+    padding: 1.05%;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 1.05%;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+section {
+    padding: 3.5% 1.4%;
+    text-align: center;
+}
+
+#projetos .projeto {
+    margin-bottom: 2.1%;
+}
+
+#projetos .projeto .a {
+    text-decoration: none;
+}
+
+section h2 {
+    font-size: 2em;
+    margin-bottom: 1.4%;
+}
+
+.btn-download {
+    display: inline-block;
+    background-color: #000; /* Cor de fundo */
+    color: white;           /* Cor do texto */
+    padding: 15px 30px;     /* Espaçamento interno do botão */
+    text-align: center;     /* Centralizar o texto */
+    text-decoration: none;  /* Remover sublinhado */
+    font-size: 1.2em;       /* Tamanho da fonte */
+    border-radius: 5px;     /* Bordas arredondadas */
+    transition: background-color 0.3s ease; /* Animação suave ao passar o mouse */
+}
+
+.btn-download:hover {
+    background-color: #333; /* Cor de fundo ao passar o mouse */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label, form input, form textarea {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 1.05%;
+    padding: 0.7%;
+    font-size: 1em;
+}
+
+form button {
+    background-color: #000;
+    color: white;
+    border: none;
+    padding: 1.05% 2.1%;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+footer {
+    background-color: #000;
+    color: white;
+    text-align: center;
+    padding: 1.4%;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a {
+    color: white;
+    text-decoration:underline;
+}
+
+footer a:hover {
+    color: #0033ff;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 0.7% 0;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    nav ul li a {
+        font-size: 1.5em;
+    }
+
+    section {
+        padding: 2.1% 1.05%;
+    }
+
+    section h2 {
+        font-size: 1.8em;
+    }
+
+    form label, form input, form textarea {
+        width: 100%;
+        padding: 0.7%;
+        font-size: 0.9em;
+    }
+
+    form button {
+        width: 100%;
+        max-width: 600px;
+    }
+}
+
+/* Ajustes para telas muito pequenas (smartphones) */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    nav ul li a {
+        font-size: 1.2em;
+    }
+
+    form label, form input, form textarea {
+        font-size: 0.8em;
+        padding: 0.56%;
+    }
+
+    form button {
+        font-size: 1em;
+        padding: 0.7% 1.4%;
+    }
+
+    section h2 {
+        font-size: 1.5em;
+    }
+}
