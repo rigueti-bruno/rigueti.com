@@ -48,18 +48,4 @@
         <lastmod>2025-01-18</lastmod>
         <priority>0.5</priority>
     </url>
-
-    <!-- GitHub -->
-    <url>
-        <loc>https://github.com/rigueti-bruno/</loc>
-        <lastmod>2025-01-18</lastmod>
-        <priority>0.6</priority>
-    </url>
-
-    <!-- LinkedIn -->
-    <url>
-        <loc>https://www.linkedin.com/in/bruno-rigueti-brandao-analise-dados-financeiros/</loc>
-        <lastmod>2025-01-18</lastmod>
-        <priority>0.6</priority>
-    </url>
 </urlset>
