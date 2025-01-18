@@ -1,44 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
     <!-- Página inicial -->
     <url>
         <loc>https://www.rigueti.com/</loc>
-        <lastmod>2024-09-21</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>1.0</priority>
+        <lastmod>2025-01-18</lastmod> <!-- data de última modificação -->
+        <priority>1.0</priority> <!-- prioridade da página -->
     </url>
 
-    <!-- Página "Sobre Mim" -->
+    <!-- Sobre mim -->
     <url>
         <loc>https://www.rigueti.com/#sobre</loc>
-        <lastmod>2024-09-21</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2025-01-18</lastmod>
         <priority>0.8</priority>
     </url>
 
-    <!-- Página "Projetos" -->
+    <!-- Projetos -->
     <url>
         <loc>https://www.rigueti.com/#projetos</loc>
-        <lastmod>2024-09-21</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2025-01-18</lastmod>
         <priority>0.8</priority>
     </url>
 
-    <!-- Página "Currículo" -->
+    <!-- Currículo -->
     <url>
         <loc>https://www.rigueti.com/#curriculo</loc>
-        <lastmod>2024-09-21</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2025-01-18</lastmod>
         <priority>0.7</priority>
     </url>
 
-    <!-- Página "Contato" -->
+    <!-- Contato -->
     <url>
         <loc>https://www.rigueti.com/#contato</loc>
-        <lastmod>2024-09-21</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2025-01-18</lastmod>
         <priority>0.7</priority>
     </url>
 
+    <!-- Download do currículo em português -->
+    <url>
+        <loc>https://www.rigueti.com/Curriculo-Bruno-Rigueti-Brandao.pdf</loc>
+        <lastmod>2025-01-18</lastmod>
+        <priority>0.5</priority>
+    </url>
+
+    <!-- Download do currículo em inglês -->
+    <url>
+        <loc>https://www.rigueti.com/Resume-Bruno-Rigueti-Brandao.pdf</loc>
+        <lastmod>2025-01-18</lastmod>
+        <priority>0.5</priority>
+    </url>
+
+    <!-- GitHub -->
+    <url>
+        <loc>https://github.com/rigueti-bruno/</loc>
+        <lastmod>2025-01-18</lastmod>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- LinkedIn -->
+    <url>
+        <loc>https://www.linkedin.com/in/bruno-rigueti-brandao-analise-dados-financeiros/</loc>
+        <lastmod>2025-01-18</lastmod>
+        <priority>0.6</priority>
+    </url>
 </urlset>
