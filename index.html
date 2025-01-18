@@ -55,38 +55,6 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="cookie-banner" style="display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: #333; color: white; padding: 15px; text-align: center; z-index: 1000;">
-        Este site utiliza cookies para melhorar sua experiência. 
-        <button id="accept-cookies" style="margin-left: 10px; background: #28a745; color: white; border: none; padding: 10px; cursor: pointer;">
-            Aceitar
-        </button>
-        <a href="/politica-de-cookies" style="margin-left: 10px; color: #00f; text-decoration: underline;">Saiba mais</a>
-    </div>
-    
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const banner = document.getElementById("cookie-banner");
-            const acceptButton = document.getElementById("accept-cookies");
-    
-            // Verificar se o consentimento já foi dado
-            if (!localStorage.getItem("cookiesAccepted")) {
-                banner.style.display = "block";
-            }
-    
-            // Consentimento do usuário
-            acceptButton.addEventListener("click", function () {
-                localStorage.setItem("cookiesAccepted", "true");
-                banner.style.display = "none";
-    
-                // Carregar os scripts
-                var analyticsScript = document.createElement('script');
-                analyticsScript.src = "analytics.js";
-                analyticsScript.async = true;
-                document.head.appendChild(analyticsScript);
-            });
-        });
-    </script>
-    
     <header>
         <img src="sua-foto.jpg" alt="Foto de Bruno Rigueti Brandão" class="profile-photo">
         <div class="text-container">
@@ -145,6 +113,38 @@
             <button type="submit">Enviar</button>
         </form>
     </section>
+
+    <div id="cookie-banner" style="display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: #333; color: white; padding: 15px; text-align: center; z-index: 1000;">
+        Este site utiliza cookies para melhorar sua experiência. 
+        <button id="accept-cookies" style="margin-left: 10px; background: #28a745; color: white; border: none; padding: 10px; cursor: pointer;">
+            Aceitar
+        </button>
+        <a href="/politica-de-cookies.html" style="margin-left: 10px; color: #00f; text-decoration: underline;">Saiba mais</a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const banner = document.getElementById("cookie-banner");
+            const acceptButton = document.getElementById("accept-cookies");
+
+            // Verificar se o consentimento já foi dado
+            if (!localStorage.getItem("cookiesAccepted")) {
+                banner.style.display = "block";
+            }
+
+            // Consentimento do usuário
+            acceptButton.addEventListener("click", function () {
+                localStorage.setItem("cookiesAccepted", "true");
+                banner.style.display = "none";
+
+                // Carregar os scripts
+                var analyticsScript = document.createElement('script');
+                analyticsScript.src = "analytics.js";
+                analyticsScript.async = true;
+                document.head.appendChild(analyticsScript);
+            });
+        });
+    </script>
         
     <footer>
         <p>Conecte-se comigo no <a href="https://www.linkedin.com/in/bruno-rigueti-brandao-analise-dados-financeiros/" target="_blank">LinkedIn</a> ou no <a href="https://github.com/rigueti-bruno/" target="_blank">GitHub</a></p>
