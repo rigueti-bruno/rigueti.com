@@ -273,6 +273,7 @@ footer a:hover {
         flex-direction: column;
         align-items: center;
         text-align: justify;
+        padding: 0%;
     }
 
     #projetos .projeto {
@@ -307,6 +308,7 @@ footer a:hover {
         flex-direction: column;
         align-items: center;
         text-align: justify;
+        padding: 0%;
     }
 
     form input, form textarea {
