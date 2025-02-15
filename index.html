@@ -50,6 +50,7 @@
     <meta property="og:image:height" content="630">
 
     <script type="text/javascript">
+        // Microsoft Clarity
         (function(c, l, a, r, i, t, y) {
             c[a] = c[a] || function() { (c[a].q = c[a].q || []).push(arguments) };
             t = l.createElement(r);
@@ -59,22 +60,27 @@
             y.parentNode.insertBefore(t, y);
         })(window, document, "clarity", "script", "pwi0ctbhqd");
     
+        // Google Analytics
         function loadGoogleAnalytics() {
             var gaScript = document.createElement('script');
             gaScript.async = true;
             gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-GZSHCJH5WY";
+            
+            // Executa o código do GA apenas quando o script for carregado com sucesso
+            gaScript.onload = function() {
+                window.dataLayer = window.dataLayer || [];
+                function gtag() { window.dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-GZSHCJH5WY');
+            };
+    
             document.head.appendChild(gaScript);
-    
-            window.dataLayer = window.dataLayer || [];
         }
     
-        function gtag() {
-            window.dataLayer.push(arguments);
-        }
-    
-        gtag('js', new Date());
-        gtag('config', 'G-GZSHCJH5WY');
+        // Chama a função para carregar o Google Analytics
+        loadGoogleAnalytics();
     </script>
+    
     
 
     <script type="application/ld+json">
