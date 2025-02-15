@@ -127,6 +127,15 @@ section p {
     margin-bottom: 2rem;
 }
 
+#sobre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    padding: 0% 30%;
+    text-align: justify;
+}
+
 /* Project Cards */
 #projetos .projeto {
     background: #fff;
