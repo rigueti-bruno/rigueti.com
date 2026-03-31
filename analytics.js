@@ -1,8 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     function loadGoogleAnalytics() {
-        if (typeof gtag === 'function') {
-            gtag('consent', 'update', { analytics_storage: 'granted' });
-        }
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+        var gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-GZSHCJH5WY';
+        document.head.appendChild(gaScript);
     }
 
     function loadMicrosoftClarity() {

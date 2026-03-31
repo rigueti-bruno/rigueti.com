@@ -10,17 +10,19 @@ const analyticsSource = readFileSync(join(__dirname, '../analytics.js'), 'utf-8'
 let gtagCalls = [];
 
 /**
- * Returns true if Google Analytics consent was granted via gtag('consent', 'update', ...).
- * Reflects the new consent-mode approach: GA loads statically in <head>; analytics.js
- * only calls gtag to update the consent state.
+ * Returns true if Google Analytics was activated: consent updated to 'granted'
+ * AND the external gtag.js script was injected into <head>.
  */
 function gaWasLoaded() {
-  return gtagCalls.some(
+  const consentGranted = gtagCalls.some(
     (call) =>
       call[0] === 'consent' &&
       call[1] === 'update' &&
       call[2]?.analytics_storage === 'granted'
   );
+  const scriptInjected =
+    document.head.querySelectorAll('script[src*="googletagmanager"]').length > 0;
+  return consentGranted && scriptInjected;
 }
 
 /**
@@ -266,10 +268,10 @@ describe('index.html — required DOM elements', () => {
     expect(canonical.getAttribute('href')).toMatch(/^https?:\/\//);
   });
 
-  it('has the GA4 gtag.js script tag in <head>', () => {
-    const gaScript = document.querySelector('script[src*="googletagmanager"]');
-    expect(gaScript).not.toBeNull();
-    expect(gaScript.getAttribute('src')).toContain('G-GZSHCJH5WY');
+  it('has the inline gtag config script in <head> with the correct measurement ID', () => {
+    const scripts = Array.from(document.querySelectorAll('script:not([src])'));
+    const hasConfig = scripts.some((s) => s.textContent.includes('G-GZSHCJH5WY'));
+    expect(hasConfig).toBe(true);
   });
 
   it('profile image has a non-empty alt attribute', () => {
