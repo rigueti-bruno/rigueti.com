@@ -1,15 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     function loadGoogleAnalytics() {
-        var gaScript = document.createElement('script');
-        gaScript.async = true;
-        gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-GZSHCJH5WY";
-        gaScript.onload = function () {
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { window.dataLayer.push(arguments); }
-            gtag('js', new Date());
-            gtag('config', 'G-GZSHCJH5WY');
-        };
-        document.head.appendChild(gaScript);
+        if (typeof gtag === 'function') {
+            gtag('consent', 'update', { analytics_storage: 'granted' });
+        }
     }
 
     function loadMicrosoftClarity() {

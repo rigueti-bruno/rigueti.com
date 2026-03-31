@@ -6,12 +6,21 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const analyticsSource = readFileSync(join(__dirname, '../analytics.js'), 'utf-8');
 
+// Tracks all gtag() calls made during a test.
+let gtagCalls = [];
+
 /**
- * Returns true if Google Analytics was initialised (a <script> pointing to
- * the GTM URL was appended to <head>).
+ * Returns true if Google Analytics consent was granted via gtag('consent', 'update', ...).
+ * Reflects the new consent-mode approach: GA loads statically in <head>; analytics.js
+ * only calls gtag to update the consent state.
  */
 function gaWasLoaded() {
-  return document.head.querySelectorAll('script[src*="googletagmanager"]').length > 0;
+  return gtagCalls.some(
+    (call) =>
+      call[0] === 'consent' &&
+      call[1] === 'update' &&
+      call[2]?.analytics_storage === 'granted'
+  );
 }
 
 /**
@@ -32,6 +41,9 @@ function clarityWasLoaded() {
  * A dummy <script> element is seeded in <head> so that loadMicrosoftClarity
  * can find an existing script as an insertBefore anchor (it calls
  * document.getElementsByTagName('script')[0]).
+ *
+ * A mock gtag() function is installed on window so analytics.js can call
+ * gtag('consent', 'update', ...) without the actual GA script being loaded.
  */
 function setupDOM(localStorageValue) {
   // Seed a script anchor for the Clarity IIFE.
@@ -43,6 +55,11 @@ function setupDOM(localStorageValue) {
       <button id="reject-cookies">Recusar</button>
     </div>
   `;
+
+  // Reset and install mock gtag.
+  gtagCalls = [];
+  window.gtag = function () { gtagCalls.push(Array.from(arguments)); };
+  window.dataLayer = [];
 
   if (localStorageValue === null) {
     localStorage.clear();
@@ -66,6 +83,8 @@ describe('analytics.js — cookie banner logic', () => {
     document.body.innerHTML = '';
     delete window.clarity;
     delete window.dataLayer;
+    delete window.gtag;
+    gtagCalls = [];
   });
 
   // -------------------------------------------------------------------------
@@ -94,7 +113,7 @@ describe('analytics.js — cookie banner logic', () => {
   // Analytics loading
   // -------------------------------------------------------------------------
 
-  it('loads Google Analytics immediately when cookiesAccepted is "true"', () => {
+  it('grants GA consent immediately when cookiesAccepted is "true"', () => {
     setupDOM('true');
 
     expect(gaWasLoaded()).toBe(true);
@@ -106,14 +125,14 @@ describe('analytics.js — cookie banner logic', () => {
     expect(clarityWasLoaded()).toBe(true);
   });
 
-  it('does not load analytics when cookiesAccepted is "false"', () => {
+  it('does not grant GA consent when cookiesAccepted is "false"', () => {
     setupDOM('false');
 
     expect(gaWasLoaded()).toBe(false);
     expect(clarityWasLoaded()).toBe(false);
   });
 
-  it('does not load analytics on first visit before user interacts with the banner', () => {
+  it('does not grant GA consent on first visit before user interacts with the banner', () => {
     setupDOM(null);
 
     expect(gaWasLoaded()).toBe(false);
@@ -140,7 +159,7 @@ describe('analytics.js — cookie banner logic', () => {
     expect(document.getElementById('cookie-banner').style.display).toBe('none');
   });
 
-  it('accept button: loads Google Analytics', () => {
+  it('accept button: grants GA consent', () => {
     setupDOM(null);
 
     document.getElementById('accept-cookies').click();
@@ -176,7 +195,7 @@ describe('analytics.js — cookie banner logic', () => {
     expect(document.getElementById('cookie-banner').style.display).toBe('none');
   });
 
-  it('reject button: does not load Google Analytics', () => {
+  it('reject button: does not grant GA consent', () => {
     setupDOM(null);
 
     document.getElementById('reject-cookies').click();
@@ -245,6 +264,12 @@ describe('index.html — required DOM elements', () => {
     const canonical = document.querySelector('link[rel="canonical"]');
     expect(canonical).not.toBeNull();
     expect(canonical.getAttribute('href')).toMatch(/^https?:\/\//);
+  });
+
+  it('has the GA4 gtag.js script tag in <head>', () => {
+    const gaScript = document.querySelector('script[src*="googletagmanager"]');
+    expect(gaScript).not.toBeNull();
+    expect(gaScript.getAttribute('src')).toContain('G-GZSHCJH5WY');
   });
 
   it('profile image has a non-empty alt attribute', () => {
